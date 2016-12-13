@@ -1,0 +1,263 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog" xmlns:ext="http://www.liquibase.org/xml/ns/dbchangelog-ext" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog-ext http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-ext.xsd http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.4.xsd">
+    <changeSet author="user (generated)" id="1479894330151-1">
+        <createTable tableName="login">
+            <column autoIncrement="true" name="id" type="BIGINT">
+                <constraints primaryKey="true"/>
+            </column>
+            <column name="created_date" type="datetime(6)"/>
+            <column name="updated_date" type="datetime(6)"/>
+            <column name="version" type="INT"/>
+            <column name="password" type="VARCHAR(255)"/>
+            <column name="user_name" type="VARCHAR(255)"/>
+        </createTable>
+    </changeSet>
+    <changeSet author="user (generated)" id="1479894330151-2">
+        <createTable tableName="login_module">
+            <column name="login_id" type="BIGINT">
+                <constraints nullable="false"/>
+            </column>
+            <column name="module_id" type="BIGINT">
+                <constraints nullable="false"/>
+            </column>
+        </createTable>
+    </changeSet>
+    <changeSet author="user (generated)" id="1479894330151-3">
+        <createTable tableName="login_role">
+            <column name="login_id" type="BIGINT">
+                <constraints nullable="false"/>
+            </column>
+            <column name="role_id" type="BIGINT">
+                <constraints nullable="false"/>
+            </column>
+        </createTable>
+    </changeSet>
+    <changeSet author="user (generated)" id="1479894330151-4">
+        <createTable tableName="login_sub_modules">
+            <column name="login_id" type="BIGINT">
+                <constraints nullable="false"/>
+            </column>
+            <column name="sub_modules_id" type="BIGINT">
+                <constraints nullable="false"/>
+            </column>
+        </createTable>
+    </changeSet>
+    <changeSet author="user (generated)" id="1479894330151-5">
+        <createTable tableName="module">
+            <column autoIncrement="true" name="id" type="BIGINT">
+                <constraints primaryKey="true"/>
+            </column>
+            <column name="name" type="VARCHAR(255)"/>
+            <column name="login_id" type="BIGINT"/>
+            <column name="created_date" type="datetime(6)"/>
+            <column name="updated_date" type="datetime(6)"/>
+            <column name="version" type="INT"/>
+        </createTable>
+    </changeSet>
+    <changeSet author="user (generated)" id="1479894330151-6">
+        <createTable tableName="module_sub_modules">
+            <column name="module_id" type="BIGINT">
+                <constraints nullable="false"/>
+            </column>
+            <column name="sub_modules_id" type="BIGINT">
+                <constraints nullable="false"/>
+            </column>
+        </createTable>
+    </changeSet>
+    <changeSet author="user (generated)" id="1479894330151-7">
+        <createTable tableName="oauth_access_token">
+            <column name="token_id" type="VARCHAR(255)"/>
+            <column name="token" type="BLOB"/>
+            <column name="authentication_id" type="VARCHAR(255)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="user_name" type="VARCHAR(255)"/>
+            <column name="client_id" type="VARCHAR(255)"/>
+            <column name="authentication" type="BLOB"/>
+            <column name="refresh_token" type="VARCHAR(255)"/>
+        </createTable>
+    </changeSet>
+    <changeSet author="user (generated)" id="1479894330151-8">
+        <createTable tableName="oauth_client_details">
+            <column name="client_id" type="VARCHAR(255)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="resource_ids" type="VARCHAR(255)"/>
+            <column name="client_secret" type="VARCHAR(255)"/>
+            <column name="scope" type="VARCHAR(255)"/>
+            <column name="authorized_grant_types" type="VARCHAR(255)"/>
+            <column name="web_server_redirect_uri" type="VARCHAR(255)"/>
+            <column name="authorities" type="VARCHAR(255)"/>
+            <column name="access_token_validity" type="INT"/>
+            <column name="refresh_token_validity" type="INT"/>
+            <column name="additional_information" type="VARCHAR(4096)"/>
+            <column name="autoapprove" type="TINYINT"/>
+        </createTable>
+    </changeSet>
+    <changeSet author="user (generated)" id="1479894330151-9">
+        <createTable tableName="oauth_client_token">
+            <column name="token_id" type="VARCHAR(255)"/>
+            <column name="token" type="BLOB"/>
+            <column name="authentication_id" type="VARCHAR(255)"/>
+            <column name="user_name" type="VARCHAR(255)"/>
+            <column name="client_id" type="VARCHAR(255)"/>
+        </createTable>
+    </changeSet>
+    <changeSet author="user (generated)" id="1479894330151-10">
+        <createTable tableName="oauth_code">
+            <column name="code" type="VARCHAR(255)"/>
+            <column name="authentication" type="BLOB"/>
+        </createTable>
+    </changeSet>
+    <changeSet author="user (generated)" id="1479894330151-11">
+        <createTable tableName="oauth_refresh_token">
+            <column name="token_id" type="VARCHAR(255)"/>
+            <column name="token" type="BLOB"/>
+            <column name="authentication" type="BLOB"/>
+        </createTable>
+    </changeSet>
+    <changeSet author="user (generated)" id="1479894330151-12">
+        <createTable tableName="role">
+            <column autoIncrement="true" name="id" type="BIGINT">
+                <constraints primaryKey="true"/>
+            </column>
+            <column name="name" type="VARCHAR(255)"/>
+            <column name="created_date" type="datetime(6)"/>
+            <column name="updated_date" type="datetime(6)"/>
+            <column name="version" type="INT"/>
+        </createTable>
+    </changeSet>
+    <changeSet author="user (generated)" id="1479894330151-13">
+        <createTable tableName="role_login">
+            <column name="role_id" type="BIGINT">
+                <constraints nullable="false"/>
+            </column>
+            <column name="login_id" type="BIGINT">
+                <constraints nullable="false"/>
+            </column>
+        </createTable>
+    </changeSet>
+    <changeSet author="user (generated)" id="1479894330151-14">
+        <createTable tableName="subRole">
+            <column autoIncrement="true" name="id" type="BIGINT">
+                <constraints primaryKey="true"/>
+            </column>
+            <column name="user_name" type="VARCHAR(255)">
+                <constraints nullable="false"/>
+            </column>
+        </createTable>
+    </changeSet>
+    <changeSet author="user (generated)" id="1479894330151-15">
+        <createTable tableName="sub_module">
+            <column autoIncrement="true" name="id" type="BIGINT">
+                <constraints primaryKey="true"/>
+            </column>
+            <column name="name" type="VARCHAR(255)"/>
+            <column name="login_id" type="BIGINT"/>
+            <column name="module_id" type="BIGINT"/>
+            <column name="created_date" type="datetime(6)"/>
+            <column name="updated_date" type="datetime(6)"/>
+            <column name="version" type="INT"/>
+        </createTable>
+    </changeSet>
+    <changeSet author="user (generated)" id="1479894330151-16">
+        <addPrimaryKey columnNames="authentication_id" constraintName="PRIMARY" tableName="oauth_access_token"/>
+    </changeSet>
+    <changeSet author="user (generated)" id="1479894330151-17">
+        <addPrimaryKey columnNames="client_id" constraintName="PRIMARY" tableName="oauth_client_details"/>
+    </changeSet>
+    <changeSet author="user (generated)" id="1479894330151-18">
+        <addUniqueConstraint columnNames="login_id" constraintName="UK_3jse60mejfj4n32tebgu3d2rc" tableName="role_login"/>
+    </changeSet>
+    <changeSet author="user (generated)" id="1479894330151-19">
+        <addUniqueConstraint columnNames="role_id" constraintName="UK_56rd1s8w0qpf989nccfc1eg90" tableName="login_role"/>
+    </changeSet>
+    <changeSet author="user (generated)" id="1479894330151-20">
+        <addUniqueConstraint columnNames="module_id" constraintName="UK_95s0nyc0vyoxw2nkhb4nj4n48" tableName="login_module"/>
+    </changeSet>
+    <changeSet author="user (generated)" id="1479894330151-21">
+        <addUniqueConstraint columnNames="sub_modules_id" constraintName="UK_9m7xynr5jwi4097i6ef58ljlo" tableName="module_sub_modules"/>
+    </changeSet>
+    <changeSet author="user (generated)" id="1479894330151-22">
+        <addUniqueConstraint columnNames="sub_modules_id" constraintName="UK_cku18pvsk2dgy6qbavhb4fyl" tableName="login_sub_modules"/>
+    </changeSet>
+    <changeSet author="user (generated)" id="1479894330151-23">
+        <createIndex indexName="FK5l12dxp5h1qg42nj3l8y2twgs" tableName="login_module">
+            <column name="login_id"/>
+        </createIndex>
+    </changeSet>
+    <changeSet author="user (generated)" id="1479894330151-24">
+        <createIndex indexName="FK9bqlp09e2a52fdq1ywjha2iti" tableName="login_role">
+            <column name="login_id"/>
+        </createIndex>
+    </changeSet>
+    <changeSet author="user (generated)" id="1479894330151-25">
+        <createIndex indexName="FKcjtqq7agpd7k4ouk7biry2aov" tableName="sub_module">
+            <column name="login_id"/>
+        </createIndex>
+    </changeSet>
+    <changeSet author="user (generated)" id="1479894330151-26">
+        <createIndex indexName="FKgaxbdj7w5y7eyl1e6n8qcjvgd" tableName="module_sub_modules">
+            <column name="module_id"/>
+        </createIndex>
+    </changeSet>
+    <changeSet author="user (generated)" id="1479894330151-27">
+        <createIndex indexName="FKhy1oaee73gxuijcwwrwta0l4y" tableName="login_sub_modules">
+            <column name="login_id"/>
+        </createIndex>
+    </changeSet>
+    <changeSet author="user (generated)" id="1479894330151-28">
+        <createIndex indexName="FKnpd6gmqepaap5pgww29tv9gyi" tableName="module">
+            <column name="login_id"/>
+        </createIndex>
+    </changeSet>
+    <changeSet author="user (generated)" id="1479894330151-29">
+        <createIndex indexName="FKpgdwf8oordpfbfiv9uv49c9d0" tableName="role_login">
+            <column name="role_id"/>
+        </createIndex>
+    </changeSet>
+    <changeSet author="user (generated)" id="1479894330151-30">
+        <createIndex indexName="FKsiy8j1vihx4qrh9ap5mdfkn13" tableName="sub_module">
+            <column name="module_id"/>
+        </createIndex>
+    </changeSet>
+    <changeSet author="user (generated)" id="1479894330151-31">
+        <addForeignKeyConstraint baseColumnNames="login_id" baseTableName="login_module" constraintName="FK5l12dxp5h1qg42nj3l8y2twgs" deferrable="false" initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION" referencedColumnNames="id" referencedTableName="login"/>
+    </changeSet>
+    <changeSet author="user (generated)" id="1479894330151-32">
+        <addForeignKeyConstraint baseColumnNames="role_id" baseTableName="login_role" constraintName="FK63kgx3alku7oht20p6r560u95" deferrable="false" initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION" referencedColumnNames="id" referencedTableName="role"/>
+    </changeSet>
+    <changeSet author="user (generated)" id="1479894330151-33">
+        <addForeignKeyConstraint baseColumnNames="login_id" baseTableName="role_login" constraintName="FK9868r70t3m7qu1x5x0h29nykh" deferrable="false" initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION" referencedColumnNames="id" referencedTableName="login"/>
+    </changeSet>
+    <changeSet author="user (generated)" id="1479894330151-34">
+        <addForeignKeyConstraint baseColumnNames="login_id" baseTableName="login_role" constraintName="FK9bqlp09e2a52fdq1ywjha2iti" deferrable="false" initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION" referencedColumnNames="id" referencedTableName="login"/>
+    </changeSet>
+    <changeSet author="user (generated)" id="1479894330151-35">
+        <addForeignKeyConstraint baseColumnNames="login_id" baseTableName="sub_module" constraintName="FKcjtqq7agpd7k4ouk7biry2aov" deferrable="false" initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION" referencedColumnNames="id" referencedTableName="login"/>
+    </changeSet>
+    <changeSet author="user (generated)" id="1479894330151-36">
+        <addForeignKeyConstraint baseColumnNames="sub_modules_id" baseTableName="login_sub_modules" constraintName="FKe623fcgw40ml3psns1u6g07qc" deferrable="false" initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION" referencedColumnNames="id" referencedTableName="sub_module"/>
+    </changeSet>
+    <changeSet author="user (generated)" id="1479894330151-37">
+        <addForeignKeyConstraint baseColumnNames="module_id" baseTableName="module_sub_modules" constraintName="FKgaxbdj7w5y7eyl1e6n8qcjvgd" deferrable="false" initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION" referencedColumnNames="id" referencedTableName="module"/>
+    </changeSet>
+    <changeSet author="user (generated)" id="1479894330151-38">
+        <addForeignKeyConstraint baseColumnNames="login_id" baseTableName="login_sub_modules" constraintName="FKhy1oaee73gxuijcwwrwta0l4y" deferrable="false" initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION" referencedColumnNames="id" referencedTableName="login"/>
+    </changeSet>
+    <changeSet author="user (generated)" id="1479894330151-39">
+        <addForeignKeyConstraint baseColumnNames="sub_modules_id" baseTableName="module_sub_modules" constraintName="FKja62ebhyipa0vplswe8cfdrfb" deferrable="false" initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION" referencedColumnNames="id" referencedTableName="sub_module"/>
+    </changeSet>
+    <changeSet author="user (generated)" id="1479894330151-40">
+        <addForeignKeyConstraint baseColumnNames="module_id" baseTableName="login_module" constraintName="FKjxiuv4a8k3rvh6bkg5vpjbubi" deferrable="false" initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION" referencedColumnNames="id" referencedTableName="module"/>
+    </changeSet>
+    <changeSet author="user (generated)" id="1479894330151-41">
+        <addForeignKeyConstraint baseColumnNames="login_id" baseTableName="module" constraintName="FKnpd6gmqepaap5pgww29tv9gyi" deferrable="false" initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION" referencedColumnNames="id" referencedTableName="login"/>
+    </changeSet>
+    <changeSet author="user (generated)" id="1479894330151-42">
+        <addForeignKeyConstraint baseColumnNames="role_id" baseTableName="role_login" constraintName="FKpgdwf8oordpfbfiv9uv49c9d0" deferrable="false" initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION" referencedColumnNames="id" referencedTableName="role"/>
+    </changeSet>
+    <changeSet author="user (generated)" id="1479894330151-43">
+        <addForeignKeyConstraint baseColumnNames="module_id" baseTableName="sub_module" constraintName="FKsiy8j1vihx4qrh9ap5mdfkn13" deferrable="false" initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION" referencedColumnNames="id" referencedTableName="module"/>
+    </changeSet>
+</databaseChangeLog>
